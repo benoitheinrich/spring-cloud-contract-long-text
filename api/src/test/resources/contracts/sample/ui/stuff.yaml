@@ -1,8 +1,6 @@
 ---
 request:
   url: /stuff
-  queryParameters:
-    username: John
   method: POST
   headers:
     Content-Type: application/json
@@ -15,8 +13,7 @@ response:
   status: 200
   body:
     status: success
-    message: The new configuration is being applied
-    username: John
+    message: It worked
     comment: |-
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
@@ -24,8 +21,6 @@ response:
 ---
 request:
   url: /stuff
-  queryParameters:
-    username: John
   method: POST
   headers:
     Content-Type: application/json
@@ -36,6 +31,5 @@ response:
   status: 200
   body:
     status: success
-    message: The new configuration is being applied
-    username: John
+    message: It worked
     comment: Simple text
