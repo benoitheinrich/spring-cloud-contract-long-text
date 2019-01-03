@@ -1,0 +1,73 @@
+openapi: 3.0.2
+info:
+  title: Smple API
+  contact:
+    name: Benoit Heinrich
+    email: benoit.heinrich@gmail.com
+  version: 1.0.0
+
+paths:
+  /stuff:
+    post:
+      summary: Do some stuff
+      operationId: doStuff
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workload'
+            encoding:
+              comment:
+                contentType: application/json
+
+      responses:
+        200:
+          description: worked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkedOperationStatus'
+              example:
+                status: 'success'
+                message: 'It worked'
+                comment: 'the work to be done is done!'
+
+
+components:
+  schemas:
+    Workload:
+      type: object
+      required:
+        - comment
+      properties:
+        comment:
+          $ref: '#/components/schemas/Comment'
+
+    Comment:
+      description: A user comment
+      type: string
+      minLength: 1
+      maxLength: 1000
+      example:
+        Some comment from user
+
+    WorkedOperationStatus:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        status:
+          type: string
+          enum:
+            - error
+            - success
+        message:
+          type: string
+        comment:
+          $ref: '#/components/schemas/Comment'
+      example:
+        status: 'error'
+        message: 'Unknown work type'
+        comment: 'the work to be done is done!'

@@ -1,0 +1,41 @@
+---
+request:
+  url: /stuff
+  queryParameters:
+    username: John
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    comment: |-
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+
+response:
+  status: 200
+  body:
+    status: success
+    message: The new configuration is being applied
+    username: John
+    comment: |-
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+
+---
+request:
+  url: /stuff
+  queryParameters:
+    username: John
+  method: POST
+  headers:
+    Content-Type: application/json
+  body:
+    comment: Simple text
+
+response:
+  status: 200
+  body:
+    status: success
+    message: The new configuration is being applied
+    username: John
+    comment: Simple text
