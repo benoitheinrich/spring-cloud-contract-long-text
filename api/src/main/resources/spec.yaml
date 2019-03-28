@@ -8,6 +8,35 @@ info:
 
 paths:
   /stuff:
+    description: Manage stuff
+    get:
+      summary: Get some stuff
+      operationId: getStuff
+      parameters:
+        - in: query
+          name: username
+          required: true
+          schema:
+            $ref: '#/components/schemas/Username'
+        - in: query
+          name: filename
+          allowReserved: true
+          required: false
+          schema:
+            $ref: '#/components/schemas/Filename'
+      responses:
+        200:
+          description: worked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkedOperationStatus'
+              example:
+                status: 'success'
+                message: 'It worked'
+                comment: 'the work to be done is done!'
+
+
     post:
       summary: Do some stuff
       operationId: doStuff
@@ -71,3 +100,18 @@ components:
         status: 'error'
         message: 'Unknown work type'
         comment: 'the work to be done is done!'
+
+    Username:
+      description: The name of the user doing the action.
+      type: string
+      minLength: 1
+      maxLength: 60
+      example:
+        John
+
+    Filename:
+      description: The name of a configuration file.
+      type: string
+      pattern: '^[a-zA-Z0-9_-]+\.(csv|groovy)$'
+      example:
+        04_a_DOCUMENTS.csv
