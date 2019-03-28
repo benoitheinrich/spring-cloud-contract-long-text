@@ -49,3 +49,7 @@ In the logs you'll notice the following:
 ```
 
 This seems to be caused by the multi-lines comment used in the contract that isn't properly escaped when passed to the test.
+
+This issue is reported as https://github.com/spring-cloud/spring-cloud-contract/issues/802
+
+This issue was fixed in 2.0.3.RELEASE.
